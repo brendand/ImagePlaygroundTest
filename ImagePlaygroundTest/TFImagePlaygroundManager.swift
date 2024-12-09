@@ -17,7 +17,7 @@ import ImagePlayground
 // ImagePlaygroundtest-Swift.h generated file. But I need this so that I can get
 // the callbacks from the Image Playground to send the generated image to my Objective-C code.
 
-class TFImagePlaygroundManager: NSObject {
+class TFImagePlaygroundManager: NSObject, ImagePlaygroundViewController.Delegate {
     
     let delegate: TFImagePlaygroundDelegate?
     
@@ -35,7 +35,7 @@ class TFImagePlaygroundManager: NSObject {
     
     @MainActor @objc public func showImagePlayground(fromController controller: NSViewController) {
         let playgroundController = ImagePlaygroundViewController()
-//        playgroundController.delegate = self
+        playgroundController.delegate = self
         controller.presentAsModalWindow(playgroundController)
     }
     
